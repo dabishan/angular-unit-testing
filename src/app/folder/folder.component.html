@@ -1,0 +1,19 @@
+<h2>Folder Tree</h2>
+<div class="left-panel">
+  <tree-root 
+    #tree 
+    [nodes]="folderNodes" 
+    [options]="treeOptions" 
+    [focused]="true">
+    <ng-template #treeNodeTemplate let-folderNode>
+      <div class="aps-tree-node">
+        <strong *ngIf="folderNode.children.length && !folderNode.isExpanded"> > </strong>
+        <strong *ngIf="folderNode.children.length && folderNode.isExpanded"> ^ </strong>
+        <strong *ngIf="!folderNode.children.length"> - </strong>
+        {{ folderNode.data.name }}</div>
+    </ng-template>
+  </tree-root>
+</div>
+<div class="right-panel">
+  <h3 *ngIf="currentFolder">{{currentFolder['name']}}</h3>
+</div>
